@@ -2,7 +2,11 @@
 
 For each trial, it will output list of word suggestions ranked with highest chance of winning. Simply input your guess word and guess state on each trial. 
 
-For example, the following program output,
+For example, this scenario will be represented by its following program output:
+
+<p align="center">
+    <img src="https://github.com/Arc-rendezvous/wordle-guide-bot/blob/master/wordle_sample.png">
+</p>
 
 ```
 Suggestions: 
@@ -62,12 +66,6 @@ Logp of win: 0.00
 You Win!
 ```
 
-would represent following scenario:
-
-<p align="center">
-    <img src="https://github.com/Arc-rendezvous/wordle-guide-bot/blob/master/wordle_sample.png">
-</p>
-
 ## Usage
 
 To use default english version with 10 suggestions, run
@@ -86,26 +84,30 @@ python guide.py -p "my_own_corpus.txt" -n 5
 
 It maximizes probability of winning by maximizing probability of guessing each character correctly on each position.
 
-$P(Winning) = P(Correct\_char\_at\_pos 0) * P(Correct\_char\_at\_pos 1) * ... * P(Correct\_char\_at\_pos 4)
-$
+$$
+P(Winning) = P(Correct\_char\_at\_pos 0) * P(Correct\_char\_at\_pos 1) * ... * P(Correct\_char\_at\_pos 4)
+$$
 
-Where it maximize $P(Correct\_char\_at\_pos\_i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i, more formally if we have a vocabulary set of:
+Where it maximize <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_i)"> by choosing character with highest occurence at pos i, relative to all character occurences at pos i, more formally if we have a vocabulary set of:
 
-$V=\{APPLE, AWARD, BEACH\}
-$
+$$
+V=\{APPLE, AWARD, BEACH\}
+$$
 
 then 
 
-$argmax(P(Correct\_char\_at\_pos\_0)) = A
-$
+$$
+argmax(P(Correct\_char\_at\_pos\_0)) = A
+$$
 
 where
-$
+
+$$
 P(Correct\_char\_at\_pos\_0)) = 2/3
-$
+$$
 
 The score for each word in the known vocab would be then product of each character position probability of being cocrect. In this example,
 
-$
-P(Winning|APPLE) = 2/3 * 1/3 * 1/3*1/3*1/3=0.00823
-$
+$$
+P(Winning|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823
+$$
