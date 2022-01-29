@@ -84,9 +84,9 @@ python guide.py -p "my_own_corpus.txt" -n 5
 
 It maximizes probability of winning by maximizing probability of guessing each character correctly on each position.
 
-$$
-P(Winning) = P(Correct\_char\_at\_pos 0) * P(Correct\_char\_at\_pos 1) * ... * P(Correct\_char\_at\_pos 4)
-$$
+<p align="center">
+    <img src="https://render.githubusercontent.com/render/math?math=P(Winning) = P(Correct\_char\_at\_pos 0) * P(Correct\_char\_at\_pos 1) * ... * P(Correct\_char\_at\_pos 4)">
+</p>
 
 Where it maximize <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_i)"> by choosing character with highest occurence at pos i, relative to all character occurences at pos i, more formally if we have a vocabulary set of:
 
