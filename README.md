@@ -90,22 +90,24 @@ $$
 
 Where it maximize <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_i)"> by choosing character with highest occurence at pos i, relative to all character occurences at pos i, more formally if we have a vocabulary set of:
 
-<img src="https://render.githubusercontent.com/render/math?math=V=\{APPLE, AWARD, BEACH\}">
+<p align="center">
+    <img src="https://render.githubusercontent.com/render/math?math=V=\{APPLE, AWARD, BEACH\}">
+</p>
 
 then 
 
-$$
-argmax(P(Correct\_char\_at\_pos\_0)) = A
-$$
+<p align="center">
+    <img src="https://render.githubusercontent.com/render/math?math=argmax(P(Correct\_char\_at\_pos\_0)) = A">
+</p>
 
 where
 
-$$
-P(Correct\_char\_at\_pos\_0)) = 2/3
-$$
+<p align="center">
+    <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_0)) = 2/3">
+</p>
 
-The score for each word in the known vocab would be then product of each character position probability of being cocrect. In this example,
+The score for each word in the known vocab would be then product of each character position probability of being correct. In this example,
 
-$$
-P(Winning|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823
-$$
+<p align="center">
+    <img src="https://render.githubusercontent.com/render/math?math=P(Winning|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823">
+</p>
