@@ -1,7 +1,8 @@
 # Wordle Guide Bot
 
-For each trial, it will output list of word suggestions ranked with highest chance of winning. Simply input your guess word and guess state on each trial. For example, the following output from
-program:
+For each trial, it will output list of word suggestions ranked with highest chance of winning. Simply input your guess word and guess state on each trial. 
+
+For example, the following program output,
 
 ```
 Suggestions: 
@@ -63,24 +64,48 @@ You Win!
 
 would represent following scenario:
 
-![Sample Scenario](/wordle_sample.png)
+<p align="center">
+    <img src="https://github.com/Arc-rendezvous/wordle-guide-bot/blob/master/wordle_sample.png">
+</p>
+
+## Usage
+
+To use default english version with 10 suggestions, run
+
+```
+python guide.py
+```
+
+To change to other version and reduce number of suggestion to 5, define your corpus file and the number:
+
+```
+python guide.py -p "my_own_corpus.txt" -n 5
+```
 
 ## How It Works
 
-Win condition for wordle is for 
-
 It maximizes probability of winning by maximizing probability of guessing each character correctly on each position.
 
-P(Winning) = P(Correct char at pos 0) * P(Correct char at pos 1) * ... * P(Correct char at pos 4)
+$P(Winning) = P(Correct\_char\_at\_pos 0) * P(Correct\_char\_at\_pos 1) * ... * P(Correct\_char\_at\_pos 4)
+$
 
-Where it maximize P(Correct char at pos x) by choosing character with highest occurence at pos x, relative to all character occurences at pos x, more formally:
+Where it maximize $P(Correct\_char\_at\_pos\_i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i, more formally if we have a vocabulary set of:
 
-argmax(P(Correct char at pos 0)) = ....
+$V=\{APPLE, AWARD, BEACH\}
+$
 
-The score for each word in the known vocab would be the 
+then 
 
+$argmax(P(Correct\_char\_at\_pos\_0)) = A
+$
 
+where
+$
+P(Correct\_char\_at\_pos\_0)) = 2/3
+$
 
-## Adjustment 
+The score for each word in the known vocab would be then product of each character position probability of being cocrect. In this example,
 
-You can modify
+$
+P(Winning|APPLE) = 2/3 * 1/3 * 1/3*1/3*1/3=0.00823
+$

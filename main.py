@@ -1,11 +1,10 @@
-import os
 import random
 import math
 from src.mylib import create_lookup_list, get_counters_from_corpus, smart_guess
+from guide import parse_args
 
 
-def play(debug: bool = True) -> any:
-    corpus_filepath = os.path.join('data', 'vocab_eng.txt')
+def play(corpus_filepath: str, debug: bool = True) -> str:
     char_counter, word_counter, char_pos_counters = get_counters_from_corpus(corpus_filepath)
     lookup = create_lookup_list(char_pos_counters, word_counter)
 
@@ -74,4 +73,6 @@ def play(debug: bool = True) -> any:
 
 
 if __name__ == "__main__":
-    _ = play(debug=True)
+    args = parse_args()
+    corpus_filepath = args.path
+    _ = play(corpus_filepath, debug=True)

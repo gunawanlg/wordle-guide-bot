@@ -1,10 +1,22 @@
 import os
 import math
+import argparse
 from src.mylib import create_lookup_list, get_counters_from_corpus, smart_guess
 
 
-def play(debug: bool = True) -> any:
-    corpus_filepath = os.path.join('data', 'vocab_eng.txt')
+def parse_args():
+    parser = argparse.ArgumentParser(
+        prog='wordle-guide-bot',
+        usage='python guide.py -p corpus_filepath -n 10',
+        description="Wordle Guide Bot"
+    )
+    parser.add_argument('-p', '--path', default=os.path.join('data', 'vocab_eng.txt'), help='corpus filepath, see example file on data/ directory')
+    parser.add_argument('-n', '--n', default=10, help="total number of suggestion to display")
+    args = parser.parse_args()
+    return args
+
+
+def play(corpus_filepath, n, debug: bool = True) -> any:
     char_counter, word_counter, char_pos_counters = get_counters_from_corpus(corpus_filepath)
     lookup = create_lookup_list(char_pos_counters, word_counter)
 
@@ -22,7 +34,7 @@ def play(debug: bool = True) -> any:
             lookup, word_counter, prev_guess, prev_state, whitelist
         )
 
-        suggestions = lookup[:10]
+        suggestions = lookup[:n]
         print("Suggestions: ")
         for suggestion in suggestions:
             print(suggestion['word'], round(suggestion['score'], 3))
@@ -63,4 +75,5 @@ def play(debug: bool = True) -> any:
 
 
 if __name__ == "__main__":
-    _ = play(debug=True)
+    args = parse_args()
+    _ = play(args.path, args.n, debug=True)
