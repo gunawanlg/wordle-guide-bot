@@ -90,9 +90,7 @@ $$
 
 Where it maximize <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_i)"> by choosing character with highest occurence at pos i, relative to all character occurences at pos i, more formally if we have a vocabulary set of:
 
-$$
-V=\{APPLE, AWARD, BEACH\}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=V=\{APPLE, AWARD, BEACH\}">
 
 then 
 
