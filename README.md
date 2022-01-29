@@ -68,6 +68,8 @@ You Win!
 
 ## Usage
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Arc-rendezvous/wordle-guide-bot/blob/master/guide.ipynb)
+
 To use default english version with 10 suggestions, run
 
 ```
