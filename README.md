@@ -105,7 +105,7 @@ then
 where
 
 <p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_0)) = 2/3">
+    <img src="https://render.githubusercontent.com/render/math?math=max(P(Correct\_char\_at\_pos\_0)) = 2/3">
 </p>
 
 The score for each word in the known vocab would be then product of each character position probability of being correct. In this example,
