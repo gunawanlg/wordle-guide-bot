@@ -87,10 +87,10 @@ python guide.py -p "my_own_corpus.txt" -n 5
 It maximizes probability of winning by maximizing probability of guessing each character correctly on each position.
 
 $$
-    P(\text{Winning}) = \prod_{i=0}^{4} P(\text{correct\_char\_at\_pos } i)
+    P(\text{Winning}) = \prod_{i=0}^{4} P(\text{correct char at position } i)
 $$
 
-Where it maximize $P(\text{correct\_char\_at\_pos}\ i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i. More formally if we have a vocabulary set of:
+Where it maximize $P(\text{correct char at pos}\ i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i. More formally if we have a vocabulary set of:
 
 $$
 V=\{APPLE, AWARD, BEACH\}
@@ -98,17 +98,16 @@ $$
 then 
 
 $$
-    \argmax(P(\text{correct\_char\_at\_pos}\ 0)) = A
+    \arg\max_{c \in \mathcal{C}} P(\text{correct char at position 0} = c) = A
 $$
 
-where
-
+with
 $$
-    \max(P(\text{correct\_char\_at\_pos}\ 0)) = 2/3
+    \quad P(\text{correct char at position 0} = A) = \frac{2}{3}
 $$
 
 The score for each word in the known vocab would be then product of each character position probability of being correct. In this example,
 
 $$
-    P(Winning|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823
+    P(\text{Winning}|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823  
 $$
