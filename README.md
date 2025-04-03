@@ -90,11 +90,12 @@ $$
     P(\text{Winning}) = \prod_{i=0}^{4} P(\text{correct char at position } i)
 $$
 
-Where it maximize $P(\text{correct char at pos}\ i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i. More formally if we have a vocabulary set of:
+Where it maximize $P(\text{correct char at position}\ i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i. More formally if we have a vocabulary set of:
 
+$$ 
+    V = \{\text{APPLE}, \text{AWARD}, \text{BEACH}\}
 $$
-V=\{APPLE, AWARD, BEACH\}
-$$
+
 then 
 
 $$
@@ -102,8 +103,9 @@ $$
 $$
 
 with
+
 $$
-    \quad P(\text{correct char at position 0} = A) = \frac{2}{3}
+    P(\text{correct char at position 0} = A) = \frac{2}{3}
 $$
 
 The score for each word in the known vocab would be then product of each character position probability of being correct. In this example,
