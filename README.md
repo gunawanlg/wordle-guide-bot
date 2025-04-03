@@ -83,32 +83,32 @@ python guide.py -p "my_own_corpus.txt" -n 5
 ```
 
 ## How It Works
+
 It maximizes probability of winning by maximizing probability of guessing each character correctly on each position.
 
-<p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=P(Winning) = P(Correct\_char\_at\_pos\_0) \times P(Correct\_char\_at\_pos\_1) \times \dots \times P(Correct\_char\_at\_pos\_4)">
-</p>
+$$
+    P(\text{Winning}) = \prod_{i=0}^{4} P(\text{correct\_char\_at\_pos } i)
+$$
 
-Where it maximizes <img src="https://render.githubusercontent.com/render/math?math=P(Correct\_char\_at\_pos\_i)"> by choosing the character with the highest occurrence at position i, relative to all character occurrences at position i. More formally, if we have a vocabulary set of:
+Where it maximize $P(\text{correct\_char\_at\_pos}\ i)$ by choosing character with highest occurence at pos i, relative to all character occurences at pos i. More formally if we have a vocabulary set of:
 
-<p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=V=\{APPLE, AWARD, BEACH\}">
-</p>
+$$
+V=\{APPLE, AWARD, BEACH\}
+$$
+then 
 
-Then,
+$$
+    \argmax(P(\text{correct\_char\_at\_pos}\ 0)) = A
+$$
 
-<p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=argmax(P(Correct\_char\_at\_pos\_0)) = A">
-</p>
+where
 
-Where,
+$$
+    \max(P(\text{correct\_char\_at\_pos}\ 0)) = 2/3
+$$
 
-<p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=max(P(Correct\_char\_at\_pos\_0)) = \frac{2}{3}">
-</p>
+The score for each word in the known vocab would be then product of each character position probability of being correct. In this example,
 
-The score for each word in the known vocabulary would then be the product of each character position's probability of being correct. In this example,
-
-<p align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=P(Winning|APPLE) = \frac{2}{3} \times \frac{1}{3} \times \frac{1}{3} \times \frac{1}{3} \times \frac{1}{3} = 0.00823">
-</p>
+$$
+    P(Winning|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823
+$$
