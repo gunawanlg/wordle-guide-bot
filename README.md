@@ -111,5 +111,5 @@ $$
 The score for each word in the known vocab would be then product of each character position probability of being correct. In this example,
 
 $$
-    P(\text{Winning}|APPLE) = 2/3 * 1/3 * 1/3 * 1/3 * 1/3=0.00823  
+    P(\text{Winning}|APPLE) = \frac{2}{3} * \frac{1}{3} * \frac{1}{3} * \frac{1}{3} * \frac{1}{3}=0.00823  
 $$
